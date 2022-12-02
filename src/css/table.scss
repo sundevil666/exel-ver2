@@ -8,6 +8,7 @@
   top: $header-height + $toolbar-height + $formula-height;
   overflow-x: auto;
   padding-bottom: 2px;
+  overflow-y: hidden;
 
   .row {
     display: flex;
@@ -25,6 +26,7 @@
     border: 1px solid $border-color;
     background: #f8f9fa;
     border-top: none;
+    position: relative;
   }
 
   .row-data {
@@ -42,6 +44,35 @@
     border-top: 0;
     border-left: 0;
     height: 100%;
+    position: relative;
+
+  }
+
+  .col-resize, .row-resize {
+    position: absolute;
+    background: #1a73e8;
+    opacity: 0;
+    z-index: 100;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .col-resize {
+    width: 5px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    cursor: col-resize;
+  }
+
+  .row-resize {
+    width: 100%;
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    cursor: row-resize;
   }
 
   .cell {
